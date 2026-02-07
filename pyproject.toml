@@ -1,0 +1,21 @@
+[project]
+name = "pycheckit"
+version = "0.5.2"
+description = "A file checksummer and integrity tester using CRC64 checksums stored as extended attributes"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "xattr>=1.0.0",
+]
+license = {text = "GPL-3.0-or-later"}
+authors = [
+    {name = "Dennis Katsonis"},
+]
+
+[project.scripts]
+pycheckit = "pycheckit:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+

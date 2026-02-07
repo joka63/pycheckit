@@ -1,0 +1,17 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# IDE files
+.vscode/
+.idea/
+
+# Virtual environments
+.venv
+
+# Old converted C Code
+checkit-0.5.2
