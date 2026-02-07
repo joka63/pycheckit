@@ -50,7 +50,7 @@ def cprintf(msg: str, directory: str, base_filename: str, mono: bool, color: Col
         mono: Whether to use monochrome output
         color: Color to use
     """
-    print(f"{directory}{base_filename:<20}\t", end="")
+    print(f"{directory}{'/' if directory else ''}{base_filename:<20}\t", end="")
     if not mono:
         print("[", end="")
         textcolor(Attribute.BRIGHT, color, Color.BLACK)
