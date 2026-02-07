@@ -32,9 +32,9 @@ install:
 	uv pip install .
 
 # Install in development mode
-dev:
+dev: .venv
 	@echo "Installing package in development mode..."
-	python3 -m pip install -e .
+	uv pip install -e .
 
 man:
 	@echo 'generating manpages...'
@@ -56,21 +56,21 @@ clean:
 	@$(MAKE) -C man clean
 
 # Run tests
-test:
+test: .venv
 	@echo "Running tests..."
-	python3 -m pytest -v testing/
+	uv run pytest -v testing/
 
 # Format code
-format:
+format: .venv
 	@echo "Formatting code with black..."
-	python3 -m black src/
+	uv run black src/
 
 # Lint code
-lint:
+lint: .venv
 	@echo "Running ruff..."
-	python3 -m ruff check src/
+	uv run ruff check src/
 	@echo "Running mypy..."
-	python3 -m mypy src/
+	uv run mypy src/
 
 # Run all checks
 check: format lint test

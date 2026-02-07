@@ -3,7 +3,7 @@ name = "pycheckit"
 version = "0.1.1"
 description = "A file checksummer and integrity tester using CRC64 checksums stored as extended attributes"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.12,<3.15"
 dependencies = [
     "xattr>=1.0.0",
 ]
