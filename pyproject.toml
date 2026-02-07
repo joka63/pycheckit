@@ -16,12 +16,13 @@ authors = [
 pycheckit = "pycheckit.cli:main"
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=61.0", "wheel", "Cython>=3.0"]
+build-backend = "setuptools.build_meta"
 
-[tool.hatch.build.targets.sdist]
-packages = ["src/pycheckit"]
+[tool.setuptools.packages.find]
+where = ["src"]
 
-[tool.hatch.build.targets.wheel]
-packages = ["src/pycheckit"]
-
+[tool.setuptools]
+ext-modules = [
+    {name = "pycheckit.crc64", sources = ["src/pycheckit/crc64.pyx"]}
+]
