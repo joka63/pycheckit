@@ -2,7 +2,7 @@
 
 from enum import IntEnum, Flag, auto
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 ATTRIBUTE_NAME = "user.crc64"
 CHECKIT_OPTIONS_NAME = "user.checkit"
 MAX_BUF_LEN = 65536

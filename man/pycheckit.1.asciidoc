@@ -1,7 +1,7 @@
 = pycheckit(1)
 :doctype: manpage
 :date: 2026-02-07
-:release-version: 0.1.0
+:release-version: 0.1.1
 :man manual: PyCheckit Manual
 :man source: pycheckit {release-version}
 
