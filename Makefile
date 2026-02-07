@@ -1,4 +1,4 @@
-.PHONY: help build install clean test dev check format lint
+.PHONY: help build install man clean test dev check format lint
 
 # Default target
 help:
@@ -30,6 +30,10 @@ dev:
 	@echo "Installing package in development mode..."
 	python3 -m pip install -e .
 
+man:
+	@echo 'generating manpages...'
+	@$(MAKE) -C man man
+
 # Clean build artifacts
 clean:
 	@echo "Cleaning build artifacts..."
@@ -43,6 +47,7 @@ clean:
 	find . -type d -name ".pytest_cache" -exec rm -rf {} + 2>/dev/null || true
 	find . -type d -name ".mypy_cache" -exec rm -rf {} + 2>/dev/null || true
 	find . -type d -name ".ruff_cache" -exec rm -rf {} + 2>/dev/null || true
+	@$(MAKE) -C man clean
 
 # Run tests
 test:

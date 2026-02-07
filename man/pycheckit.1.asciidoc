@@ -1,0 +1,101 @@
+= pycheckit(1)
+:doctype: manpage
+:date: 2026-02-07
+:release-version: 0.5.2
+:man manual: PyCheckit Manual
+:man source: pycheckit {release-version}
+
+
+== NAME
+
+pycheckit - A file integrity tool for Linux and Unix systems
+
+== SYNOPSIS
+
+*pycheckit* [_OPTIONS_] [_FILES_]
+
+== DESCRIPTION
+
+Checksum adds additional data assurance capabilities to filesystems which support extended attributes. Checkit allows you to detect any otherwise undetected data integrity issues or file changes to any file. By storing a checksum as an extended attribute, pycheckit provides an easy way to detect any silent data corruption, bit rot or otherwise modified error.
+
+== OPTIONS
+
+*-V*::
+Print license
+
+*-s*::
+Calculates and stores the checksum
+
+*-c*::
+Check file against stored checksum
+
+*-v*::
+Verbose. Print more information
+
+*-p*::
+Display CRC64 checksum
+
+*-x*::
+Remove stored checksum. This simply deletes the extended attribute
+
+*-o*::
+Overwrite existing checksum. By default, pycheckit does not overwrite an existing checksum. This option allows you to update the checksum, should the file be deliberately altered
+
+*-r*::
+Recurse through subdirectories
+
+*-e*::
+Export CRC to a hidden file
+
+*-i*::
+Import CRC from a hidden file
+
+*-d*::
+Disallow updating of CRC on this file (for files you do not intend to change)
+
+*-u*::
+Allow CRC on this file to be updated (for files you intend to change)
+
+*-m*::
+Force monochrome (disable colours)
+
+== EXAMPLES
+
+*pycheckit -s -o picture.jpg*::
+Calculates checksum of picture.jpg and overwrites old CRC64
+
+*pycheckit -s -r .*::
+Processes current directory and all sub-directories and files
+
+*pycheckit -c -r pictures/*::
+Check the entire pictures directory. Checkit will report whether all files are OK or not
+
+*pycheckit -d dissertation.txt*::
+Sets the CRC as read only. Checkit will NOT update the CRC if you try to store the checksum again
+
+*pycheckit -u dissertation.txt*::
+Sets the CRC as read write. Checkit will update the checksum if you run it with the -s option
+
+== NOTES
+
+By default, once pycheckit has created a checksum on a file, it will refuse to update or overwrite it if you try to calculate and store the CRC again. This is to protect against inadvertent updates, should it accidentally be run again. This way, you can detect any changes or errors.
+
+If you DO plan to edit or modify the file, then you can set the checksum as 'read/write' by using the -d option, which will allow pycheckit to update the checksum if run again on the file. This gives you a 'per file' level of control as to whether you want pycheckit to recalculate files you plan to change, or to avoid recalculating files you don't want changed at all.
+
+Checkit will use a 'hidden file', which has the same name as the file's name, but with a '.' at the beginning and a '.crc64' at the end, if it cannot use extended attributes (i.e., you are running it on a file over NFS or on a FAT32 formatted flash drive).
+
+Output will be monochrome when the output is not a terminal, or if the NO_COLOR environmental variable is set to any non-empty value. See https://no-color.org for info on this informal standard. Otherwise, output will be coloured.
+
+== LIMITATIONS
+
+As pycheckit doesn't repair files, you need to ensure that you have backups of important data. Checkit stores the CRC in an extended attribute. This attribute won't be transferred when copying to a filesystem which doesn't support extended attributes, or archived using an archiver which doesn't store them. Also, when copying, ensure the file manager/copy utility copies attributes. If you transfer the file to a filesystem which does not support extended attributes, you can use the 'export' function to create hidden files, to allow pycheckit to continue to function on the file for other filesystems (such as UDF/ISO9660).
+
+== BUGS
+
+No known bugs.
+
+== AUTHORS
+
+- Dennis Katsonis <dennisk@netspace.net.au>
+- Joachim Katzer <joka63@gmx.de>
+
