@@ -13,6 +13,12 @@ authors = [
     {name = "Joachim Katzer"},
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
 [project.scripts]
 pycheckit = "pycheckit.cli:main"
 
@@ -27,3 +33,15 @@ where = ["src"]
 ext-modules = [
     {name = "pycheckit.crc64", sources = ["src/pycheckit/crc64.pyx"]}
 ]
+
+[tool.pytest.ini_options]
+testpaths = ["testing"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-v",
+    "--strict-markers",
+    "--tb=short",
+]
+

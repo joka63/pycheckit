@@ -19,7 +19,7 @@ help:
 # Create virtual environment and install dependencies
 .venv:
 	@echo "Creating virtual environment and installing dependencies..."
-	uv sync
+	uv sync --extra dev
 
 # Build the distributable package
 build: .venv clean
@@ -58,7 +58,7 @@ clean:
 # Run tests
 test:
 	@echo "Running tests..."
-	python3 -m pytest -v
+	python3 -m pytest -v testing/
 
 # Format code
 format:
