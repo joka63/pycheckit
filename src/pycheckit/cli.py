@@ -272,17 +272,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description="A file checksummer and integrity tester using CRC64 checksums.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-Options:
-  -s  Calculate and store checksum        -c   Check file against stored checksum
-  -v  Verbose. Print more information     -p   Display CRC64 checksum and status
-  -x  Remove stored CRC64 checksum        -o   Overwrite existing checksum
-  -r  Recurse through directories         -i   Import CRC from hidden file
-  -e  Export CRC to hidden file           -f   Read list of files from stdin
-  -u  Allow CRC on this file to be updated (for files you intend to change)
-  -d  Disallow updating of CRC on this file (for files you do not intend to change)
-  -V  Print license                       -m  No colours.
-"""
+        epilog=f"""Version: pycheckit {VERSION}"""
     )
 
     parser.add_argument('-s', '--store', action='store_true', help='Calculate and store checksum')

@@ -23,7 +23,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 from .cli import main
+from .constants import VERSION
 
-__version__ = "0.5.2"
+__version__ = VERSION
 __all__ = ["main"]
 
