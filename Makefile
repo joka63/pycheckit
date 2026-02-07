@@ -6,6 +6,7 @@ help:
 	@echo ""
 	@echo "Available targets:"
 	@echo "  help       - Show this help message"
+	@echo "  .venv      - Create virtual environment and install dependencies"
 	@echo "  build      - Build the distributable package with uv"
 	@echo "  install    - Install the package using uv"
 	@echo "  dev        - Install package in development mode"
@@ -15,8 +16,13 @@ help:
 	@echo "  format     - Format code with black"
 	@echo "  lint       - Run linters (ruff, mypy)"
 
+# Create virtual environment and install dependencies
+.venv:
+	@echo "Creating virtual environment and installing dependencies..."
+	uv sync
+
 # Build the distributable package
-build: clean
+build: .venv clean
 	@echo "Building package..."
 	uv build 
 
