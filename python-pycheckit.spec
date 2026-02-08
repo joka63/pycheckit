@@ -34,14 +34,14 @@ undetected error.}
 
 %description %_description
 
-%package -n     python3-pycheckit
+# %package -n     pycheckit
 Summary:        %{summary}
 
-%description -n python3-pycheckit %_description
+%description -n pycheckit %_description
 
 # For official Fedora packages, review which extras should be actually packaged
 # See: https://docs.fedoraproject.org/en-US/packaging-guidelines/Python/#Extras
-%pyproject_extras_subpkg -n python3-pycheckit dev
+%pyproject_extras_subpkg -n pycheckit dev
 
 
 %prep
@@ -68,7 +68,7 @@ make man
 %pyproject_check_import
 
 
-%files -n python3-pycheckit -f %{pyproject_files}
+%files -n pycheckit -f %{pyproject_files}
 %{_bindir}/%{name}
 %{_datadir}/man/man*/%{name}*
 
