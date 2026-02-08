@@ -1,3 +1,5 @@
+Version := $(shell grep '__version__' src/pycheckit/version.py | sed -e 's/__version__\s*=\s*"\(.*\)"/\1/')
+
 .PHONY: help build install man clean test dev check format lint
 
 # Default target
@@ -23,8 +25,9 @@ help:
 
 # Build the distributable package
 build: .venv clean
-	@echo "Building package..."
-	uv build 
+	@echo "Building package, version $(Version)..."
+	@sed -e 's/^version = ".*"/version = "$(Version)"/' -i pyproject.toml
+	uv build
 
 # Install the package
 install:

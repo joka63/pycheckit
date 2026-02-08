@@ -1,13 +1,13 @@
 [project]
 name = "pycheckit"
-version = "0.1.1"
+version = "0.1.2"
 description = "A file checksummer and integrity tester using CRC64 checksums stored as extended attributes"
 readme = "README.md"
 requires-python = ">=3.12,<3.15"
 dependencies = [
     "xattr>=1.0.0",
 ]
-license = {text = "GPL-3.0-or-later"}
+license = "GPL-3.0-or-later"
 authors = [
     {name = "Dennis Katsonis"},
     {name = "Joachim Katzer"},
@@ -44,4 +44,3 @@ addopts = [
     "--strict-markers",
     "--tb=short",
 ]
-

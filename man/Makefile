@@ -1,4 +1,5 @@
-PN         = btrdup
+PN         = pycheckit
+VERSION    = $(shell grep '__version__' ../src/pycheckit/version.py | sed -e 's/__version__\s*=\s*"\(.*\)"/\1/')
 DOCS       = FAQ.md
 MAN_MAN1   = pycheckit.1
 
@@ -17,8 +18,8 @@ ifeq ($(COMPRESS), yes)
 endif
 
 # convert using "asciidoctor": <https://asciidoctor.org>
-ASCIIDOCTOR_MANPAGE = asciidoctor -d manpage -b manpage
-ASCIIDOCTOR_HTML    = asciidoctor -b html5 -d article
+ASCIIDOCTOR_MANPAGE = asciidoctor -d manpage -b manpage -a release-version=$(VERSION)
+ASCIIDOCTOR_HTML    = asciidoctor -b html5 -d article -a release-version=$(VERSION)
 
 # reproducible builds: reference date is ":date:" attribute from asciidoc source
 date_attr = $(shell sed -rn 's/:date:\s*//p' $(1))
