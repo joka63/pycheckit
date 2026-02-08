@@ -15,20 +15,20 @@ Read also the original README of the C version: [doc/ABOUT.md](doc/ABOUT.md)
 - Import/export checksums between extended attributes and hidden files
 - Mark files as updateable or static
 
+
+
+
 ## Installation
 
-Using uv:
+### From git
+
+**Requirements:** make, gcc, uv, python3-devel, asciidoctor (on Fedora: rubygem-asciidoctor)
 
 ```bash
-uv pip install pycheckit
-```
-
-Or from source:
-
-```bash
-git clone <repository>
+git clone https://github.com/joka63/pycheckit.git
 cd pycheckit
-uv pip install -e .
+make build
+make install
 ```
 
 ## Usage
