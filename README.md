@@ -4,6 +4,8 @@ A Python port of the checkit file checksummer and integrity tester.
 
 PyCheckit stores CRC64 checksums as extended file attributes, allowing you to easily detect file corruption or changes.
 
+Read also the original REAMDME.md for the C version: [doc/ABOUT.md](doc/ABOUT.md)
+
 ## Features
 
 - Calculate and store CRC64 checksums for files

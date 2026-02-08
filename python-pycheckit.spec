@@ -69,6 +69,9 @@ make man
 %files -n pycheckit -f %{pyproject_files}
 %{_bindir}/%{name}
 %{_datadir}/man/man*/%{name}*
+%doc README.md
+%doc doc/ABOUT.md
+%license COPYING
 
 %changelog
 %autochangelog
