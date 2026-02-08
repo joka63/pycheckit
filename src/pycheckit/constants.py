@@ -1,7 +1,8 @@
 """Constants for pycheckit."""
 
 from enum import IntEnum, Flag, auto
-from .version import __version__
+
+from pycheckit.version import __version__
 
 VERSION = __version__
 ATTRIBUTE_NAME = "user.crc64"

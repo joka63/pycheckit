@@ -5,7 +5,7 @@ import sys
 import argparse
 from pathlib import Path
 
-from .constants import (
+from pycheckit.constants import (
     VERSION,
     ErrorType,
     Flags,
@@ -13,7 +13,7 @@ from .constants import (
     Color,
     Attribute,
 )
-from .core import (
+from pycheckit.core import (
     Stats,
     error_message,
     get_crc,
@@ -27,7 +27,7 @@ from .core import (
     remove_checkit_options,
     hidden_crc_file,
 )
-from .file_list import FileList
+from pycheckit.file_list import FileList
 
 
 def textcolor(attr: int, fg: int, bg: int) -> None:

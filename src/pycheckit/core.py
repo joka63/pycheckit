@@ -6,14 +6,16 @@ from pathlib import Path
 from typing import Optional, Tuple
 import xattr
 
-from .crc64 import crc64
-from .constants import (
+from pycheckit.crc64 import crc64
+from pycheckit.constants import (
     ATTRIBUTE_NAME,
     CHECKIT_OPTIONS_NAME,
     MAX_BUF_LEN,
+    ERROR_MESSAGES,
     ErrorType,
     AttributeType,
     CheckitOptions,
+    Flags
 )
 
 
@@ -26,7 +28,6 @@ class Stats:
 
 def error_message(error: ErrorType) -> str:
     """Get error message for error code."""
-    from .constants import ERROR_MESSAGES
     return ERROR_MESSAGES.get(error, "Unknown error")
 
 
@@ -155,7 +156,6 @@ def put_crc(filepath: str, flags) -> ErrorType:
     Returns:
         Error code
     """
-    from .constants import Flags
 
     # Get old CRC if exists
     old_status, old_crc = get_crc(filepath)
@@ -233,8 +233,6 @@ def export_crc(filepath: str, flags) -> ErrorType:
     Returns:
         Error code
     """
-    from .constants import Flags
-
     if present_crc64(filepath) != AttributeType.XATTR:
         return ErrorType.ERROR_NO_XATTR
 
@@ -265,8 +263,6 @@ def import_crc(filepath: str, flags) -> ErrorType:
     Returns:
         Error code
     """
-    from .constants import Flags
-
     if present_crc64(filepath) != AttributeType.HIDDEN_ATTR:
         return ErrorType.ERROR_NO_OVERWRITE
 

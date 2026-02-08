@@ -22,8 +22,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from .cli import main
-from .constants import VERSION
+from pycheckit.cli import main
 
 __all__ = ["main"]
 
