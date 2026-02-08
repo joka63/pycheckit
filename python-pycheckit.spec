@@ -1,5 +1,5 @@
 Name:           pycheckit
-Version:        0.1.2
+Version:        0.1.3
 Release:        %autorelease
 # Fill in the actual package summary to submit package to Fedora
 Summary:        A file checksummer and integrity tester using CRC64 checksums stored as extended attributes
@@ -74,6 +74,13 @@ make man
 %license COPYING
 
 %changelog
+* Sun Feb 08 2026 Joachim Katzer <joka63@gmx.de> 0.1.3-1
+- doc: Fix README spelling and update version number
+  (joka63@users.noreply.github.com)
+-   Added and updated config and spec files to build a RPM for Fedora and RHEL
+  systems. (joka63@users.noreply.github.com)
+- fix: build failed due to a tito macro error
+
 * Sun Feb 08 2026 Joachim Katzer <joka63@gmx.de>
 - Fixed build error 
 
