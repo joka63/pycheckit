@@ -44,6 +44,7 @@ Summary:        %{summary}
 
 %prep
 %autosetup -p1 -n pycheckit-%{version}
+sed -e 's/^version = ".*"/version = "%{version}"/' -i pyproject.toml
 make man
 
 
