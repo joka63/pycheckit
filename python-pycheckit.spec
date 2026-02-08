@@ -8,7 +8,7 @@ Summary:        A file checksummer and integrity tester using CRC64 checksums st
 # https://docs.fedoraproject.org/en-US/packaging-guidelines/LicensingGuidelines/
 License:        GPL-3.0-or-later
 URL:            https://github.com/joka63/pycheckit
-Source:         /home/joachim/Projekte/pycheckit/dist/pycheckit-0.1.2.tar.gz
+Source0:        %{name}-%{version}.tar.gz
 
 BuildRequires:  python3-devel
 BuildRequires:  python3-cython
