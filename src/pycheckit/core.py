@@ -233,8 +233,6 @@ def export_crc(filepath: str, flags) -> ErrorType:
     Returns:
         Error code
     """
-    from .constants import Flags
-
     if present_crc64(filepath) != AttributeType.XATTR:
         return ErrorType.ERROR_NO_XATTR
 
@@ -265,8 +263,6 @@ def import_crc(filepath: str, flags) -> ErrorType:
     Returns:
         Error code
     """
-    from .constants import Flags
-
     if present_crc64(filepath) != AttributeType.HIDDEN_ATTR:
         return ErrorType.ERROR_NO_OVERWRITE
 
