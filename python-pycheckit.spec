@@ -1,6 +1,6 @@
 Name:           pycheckit
 Version:        0.1.3
-Release:        %autorelease
+Release:        2
 # Fill in the actual package summary to submit package to Fedora
 Summary:        A file checksummer and integrity tester using CRC64 checksums stored as extended attributes
 
@@ -75,6 +75,12 @@ make man
 %license COPYING
 
 %changelog
+* Sun Feb 08 2026 Joachim Katzer <joka63@gmx.de> 0.1.3-2
+- fix: version not updated in pyproject.toml on tito tag (joka63@gmx.de)
+
+* Sun Feb 08 2026 Joachim Katzer <joka63@gmx.de>
+- fix: version not updated in pyproject.toml on tito tag (joka63@gmx.de)
+
 * Sun Feb 08 2026 Joachim Katzer <joka63@gmx.de> 0.1.3-1
 - doc: Fix README spelling and update version number
   (joka63@users.noreply.github.com)
