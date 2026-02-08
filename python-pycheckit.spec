@@ -15,8 +15,8 @@ BuildRequires:  python3-cython
 BuildRequires:  python3-wheel
 BuildRequires:  python3-pytest python3-pytest-cov
 BuildRequires:  python3-xattr
-BuildRequires:  gcc
-BuildRequires:  make asciidoc
+BuildRequires:  gcc make
+BuildRequires:  rubygem-asciidoctor
 
 Requires:       python3-xattr
 
