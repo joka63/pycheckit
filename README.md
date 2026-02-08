@@ -4,7 +4,7 @@ A Python port of the checkit file checksummer and integrity tester.
 
 PyCheckit stores CRC64 checksums as extended file attributes, allowing you to easily detect file corruption or changes.
 
-Read also the original REAMDME.md for the C version: [doc/ABOUT.md](doc/ABOUT.md)
+Read also the original README of the C version: [doc/ABOUT.md](doc/ABOUT.md)
 
 ## Features
 
@@ -190,8 +190,8 @@ the Free Software Foundation, either version 3 of the License, or
 ### Credits
 
 - Original C version: Copyright (C) 2014 Dennis Katsonis
-- Python port: 2026
 - CRC64 algorithm: Copyright (c) 2012, Salvatore Sanfilippo <antirez at gmail dot com>
+- Python port: 2026
 
 ## Contributing
 
@@ -199,9 +199,10 @@ Contributions are welcome! Please feel free to submit pull requests or open issu
 
 ## Changelog
 
-### Version 0.5.2 (Python Port)
+### Version 0.1 (Python Port)
 
 - Complete Python rewrite of the original C version
+- Uses CPython for performance critical tasks (calculating checksums)
 - Uses argparse for command-line argument parsing
 - Improved error handling
 - Modern Python packaging with pyproject.toml
