@@ -37,8 +37,6 @@ undetected error.}
 # %package -n     pycheckit
 Summary:        %{summary}
 
-%description -n pycheckit %_description
-
 # For official Fedora packages, review which extras should be actually packaged
 # See: https://docs.fedoraproject.org/en-US/packaging-guidelines/Python/#Extras
 %pyproject_extras_subpkg -n pycheckit dev
