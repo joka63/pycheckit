@@ -1,4 +1,4 @@
-Name:           python-pycheckit
+Name:           pycheckit
 Version:        0.1.2
 Release:        %autorelease
 # Fill in the actual package summary to submit package to Fedora
