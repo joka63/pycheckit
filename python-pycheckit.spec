@@ -61,11 +61,11 @@ make man
 %install
 %pyproject_install
 # Add top-level Python module names here as arguments, you can use globs
-# pyproject_save_files ...
+%pyproject_save_files pycheckit
 
 
 %check
-# pyproject_check_import
+%pyproject_check_import
 
 
 %files -n python3-pycheckit -f %{pyproject_files}
