@@ -69,7 +69,8 @@ make man
 
 
 %files -n python3-pycheckit -f %{pyproject_files}
-
+%{_bindir}/%{name}
+%{_datadir}/man/man*/%{name}*
 
 %changelog
 %autochangelog
