@@ -24,7 +24,7 @@ help:
 	uv sync --extra dev
 
 # Build the distributable package
-build: .venv clean
+build: .venv clean man
 	@echo "Building package, version $(Version)..."
 	@sed -e 's/^version = ".*"/version = "$(Version)"/' -i pyproject.toml
 	uv build
@@ -79,3 +79,7 @@ lint: .venv
 check: format lint test
 	@echo "All checks passed!"
 
+rpm-build: clean
+	@echo "RPM Build mit System-Python, Version $(Version)..."
+	@sed -e 's/^version = ".*"/version = "$(Version)"/' -i pyproject.toml
+	DE=1 uv build

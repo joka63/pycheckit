@@ -34,6 +34,9 @@ ext-modules = [
     {name = "pycheckit.crc64", sources = ["src/pycheckit/crc64.pyx"]}
 ]
 
+[tool.setuptools.data-files]
+"share/man/man1" = ["man/pycheckit.1"]
+
 [tool.pytest.ini_options]
 testpaths = ["testing"]
 python_files = ["test_*.py"]
