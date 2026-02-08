@@ -16,6 +16,7 @@ BuildRequires:  python3-wheel
 BuildRequires:  python3-pytest python3-pytest-cov
 BuildRequires:  python3-xattr
 BuildRequires:  gcc
+BuildRequires:  make asciidoc
 
 Requires:       python3-xattr
 
@@ -45,6 +46,7 @@ Summary:        %{summary}
 
 %prep
 %autosetup -p1 -n pycheckit-%{version}
+make man
 
 
 %generate_buildrequires

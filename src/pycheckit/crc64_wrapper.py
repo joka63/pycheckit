@@ -6,11 +6,11 @@ If that fails (e.g., extension not compiled), it falls back to the pure Python v
 
 try:
     # Try to import the compiled Cython extension
-    from .crc64 import crc64
+    from pycheckit.crc64 import crc64
     _IMPLEMENTATION = "cython"
 except ImportError:
     # Fall back to pure Python implementation
-    from .crc64_pure import crc64
+    from pycheckit.crc64_pure import crc64
     _IMPLEMENTATION = "python"
 
 
