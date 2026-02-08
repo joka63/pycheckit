@@ -1,6 +1,6 @@
 Name:           pycheckit
 Version:        0.1.3
-Release:        3
+Release:        4
 # Fill in the actual package summary to submit package to Fedora
 Summary:        A file checksummer and integrity tester using CRC64 checksums stored as extended attributes
 
@@ -75,6 +75,9 @@ make man
 %license COPYING
 
 %changelog
+* Sun Feb 08 2026 Joachim Katzer <joka63@gmx.de> 0.1.3-4
+- fix: build failed on COPR, wrong asciidoctor package name (joka63@gmx.de)
+
 * Sun Feb 08 2026 Joachim Katzer <joka63@gmx.de> 0.1.3-3
 - fix: build failed on COPR (joka63@gmx.de)
 
