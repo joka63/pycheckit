@@ -74,4 +74,9 @@ make man
 %license COPYING
 
 %changelog
+* Sun Feb 08 2026 Joachim Katzer <joka63@gmx.de> 0.1.2-1
+- first package built with tito
+- derived from checkit: https://sourceforge.net/projects/check-it/
+- ported to Python 
+
 %autochangelog
