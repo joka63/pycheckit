@@ -13,7 +13,11 @@ Source:         /home/joachim/Projekte/pycheckit/dist/pycheckit-0.1.2.tar.gz
 BuildRequires:  python3-devel
 BuildRequires:  python3-cython
 BuildRequires:  python3-wheel
+BuildRequires:  python3-pytest python3-pytest-cov
+BuildRequires:  python3-xattr
 BuildRequires:  gcc
+
+Requires:       python3-xattr
 
 # Fill in the actual package description to submit package to Fedora
 %global _description %{expand:

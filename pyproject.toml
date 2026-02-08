@@ -5,7 +5,7 @@ description = "A file checksummer and integrity tester using CRC64 checksums sto
 readme = "README.md"
 requires-python = ">=3.12,<3.15"
 dependencies = [
-    "xattr>=1.0.0",
+    "xattr>=0.10.0",
 ]
 license = {text = "GPL-3.0-or-later"}
 authors = [
