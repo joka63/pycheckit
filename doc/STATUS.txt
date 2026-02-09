@@ -103,6 +103,36 @@ MAPPING C → PYTHON:
   checkit_attr.c              →  pycheckit.py (integriert)
   *.h (Header-Dateien)        →  pycheckit.py (Enums/Classes)
 
+PERFORMANCE:
+================================================================================
+
+  • Performance-kritische Funktionen werden mit Cython optimiert (z.B. CRC64)
+
+
+Testlaufzeiten sind vergleichbar mit der C-Version, dank effizienter Implementierung und Cython-Optimierung.
+
+Beispiel-Aufrufe:
+
+$ time pycheckit -c -r ~/Videos/Archiv
+Total of 263 file(s) processed.
+
+real	3m46,849s
+user	3m13,196s
+sys	0m25,951s
+
+$ time checkit -c -r ~/Videos/Archiv
+Total of 263 file(s) processed.
+
+real	3m40,349s
+user	3m7,598s
+sys	0m26,051s
+
+TODO:
+  • Einlesen und Prüfen von Checksummen aus Dateien parellisieren (aktuell sequentiell)
+
+
+
+
 VERBESSERUNGEN:
 ================================================================================
 

@@ -77,25 +77,13 @@ make man
 %changelog
 * Sun Feb 08 2026 Joachim Katzer <joka63@gmx.de> 0.1.3-4
 - fix: build failed on COPR, wrong asciidoctor package name (joka63@gmx.de)
-
-* Sun Feb 08 2026 Joachim Katzer <joka63@gmx.de> 0.1.3-3
-- fix: build failed on COPR (joka63@gmx.de)
-
-* Sun Feb 08 2026 Joachim Katzer <joka63@gmx.de> 0.1.3-2
-- fix: version not updated in pyproject.toml on tito tag (joka63@gmx.de)
-
-* Sun Feb 08 2026 Joachim Katzer <joka63@gmx.de>
 - fix: version not updated in pyproject.toml on tito tag (joka63@gmx.de)
 
 * Sun Feb 08 2026 Joachim Katzer <joka63@gmx.de> 0.1.3-1
 - doc: Fix README spelling and update version number
-  (joka63@users.noreply.github.com)
--   Added and updated config and spec files to build a RPM for Fedora and RHEL
-  systems. (joka63@users.noreply.github.com)
+- feat: Added and updated config and spec files to build a RPM for Fedora and RHEL
+  systems.
 - fix: build failed due to a tito macro error
-
-* Sun Feb 08 2026 Joachim Katzer <joka63@gmx.de>
-- Fixed build error 
 
 * Sun Feb 08 2026 Joachim Katzer <joka63@gmx.de> 0.1.2-1
 - first package built with tito
