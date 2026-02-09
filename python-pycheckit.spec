@@ -1,6 +1,6 @@
 Name:           pycheckit
-Version:        0.1.3
-Release:        4
+Version:        0.1.4
+Release:        1
 # Fill in the actual package summary to submit package to Fedora
 Summary:        A file checksummer and integrity tester using CRC64 checksums stored as extended attributes
 
@@ -75,6 +75,14 @@ make man
 %license COPYING
 
 %changelog
+* Mon Feb 09 2026 Joachim Katzer <joka63@gmx.de> 0.1.4-1
+- fix: don't generate hidden files without option -e (joka63@gmx.de)
+- doc: removed redundant changelog entries from spec file (joka63@gmx.de)
+- doc: Fixed mark-down format issues in ABOUT.md
+  (joka63@users.noreply.github.com)
+- doc: Add Fedora installation instructions to README
+  (joka63@users.noreply.github.com)
+
 * Sun Feb 08 2026 Joachim Katzer <joka63@gmx.de> 0.1.3-4
 - fix: build failed on COPR, wrong asciidoctor package name (joka63@gmx.de)
 - fix: version not updated in pyproject.toml on tito tag (joka63@gmx.de)
