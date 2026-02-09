@@ -155,6 +155,12 @@ def process_file(filepath: str, flags: Flags, no_crc_files: FileList, bad_crc_fi
 
         result = put_crc(filepath, flags)
         if result != ErrorType.SUCCESS:
+            # For ERROR_NO_XATTR_SUPPORT, print error and return immediately
+            # This will cause the program to abort
+            if result == ErrorType.ERROR_NO_XATTR_SUPPORT:
+                print_error_message(result, filepath)
+                sys.exit(1)
+            # For other errors, just print and continue
             print_error_message(result, filepath)
             return result
 
@@ -368,11 +374,17 @@ def main() -> int:
         for line in sys.stdin:
             filepath = line.strip()
             if filepath:
-                process_file(filepath, flags, no_crc_files, bad_crc_files)
+                result = process_file(filepath, flags, no_crc_files, bad_crc_files)
+                # Abort immediately if filesystem doesn't support extended attributes
+                if result == ErrorType.ERROR_NO_XATTR_SUPPORT:
+                    return 1
 
     # Process files from command line
     for filepath in args.files:
-        process_file(filepath, flags, no_crc_files, bad_crc_files)
+        result = process_file(filepath, flags, no_crc_files, bad_crc_files)
+        # Abort immediately if filesystem doesn't support extended attributes
+        if result == ErrorType.ERROR_NO_XATTR_SUPPORT:
+            return 1
 
     # Print summary
     if not args.files and not args.from_stdin:
