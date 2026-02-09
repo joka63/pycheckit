@@ -92,6 +92,7 @@ such as your precious family photos and movies, archives and such.
 OPERATION:
 ----------
 
+```
 checkit [OPTION] [FILE]
 
 Options:
@@ -114,21 +115,24 @@ checksum, should the file be deliberately altered).
 -u	Allow CRC on this file to be updated (for files you intend
 to change)
 [FILE] can include wildcards.
+```
 
 Examples:
 
-checkit -s -o picture.jpg	;Calculates checksum of picture.jpg and
+```
+checkit -s -o picture.jpg`	;Calculates checksum of picture.jpg and
 overwrites old CRC64
 checkit -s -r .			;Processes current directory and all
 sub-directories and files.
 checkit -c -r pictures/		;Check the enture pictures
 directory. Checkit will report whether all files are OK or not.
 
-checkit \-d  dissertation.txt	;Sets the CRC as read only.
+checkit -d  dissertation.txt	;Sets the CRC as read only.
 Checkit will NOT update the CRC if you try to store the checksum again.
 
-checkit \-u dissertation.txt	;Setc the CRC as read write.
+checkit -u dissertation.txt	;Setc the CRC as read write.
 Checkit will update the checksum if you run it with the -s option.
+```
 
 LIMITATIONS:
 ------------
@@ -154,6 +158,7 @@ TODO:
 
 * Intergration with file managers.
 
-CRC64 routine.
+CRC64 routine
+-------------
 
 The checksum routine is the crc-64-jones created by Salvatore Sanfilippo.
