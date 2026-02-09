@@ -20,7 +20,15 @@ Read also the original README of the C version: [doc/ABOUT.md](doc/ABOUT.md)
 
 ## Installation
 
-### From git
+### Fedora
+
+```
+sudo dnf copr enable joka63/pycheckit
+sudo dnf install pycheckit
+```
+
+
+### From git (in home directory)
 
 **Requirements:** make, gcc, uv, python3-devel, asciidoctor (on Fedora: rubygem-asciidoctor)
 
@@ -29,6 +37,7 @@ git clone https://github.com/joka63/pycheckit.git
 cd pycheckit
 make build
 make install
+ln -s .venv/bin/pycheckit ~/.local/bin
 ```
 
 ## Usage
