@@ -26,6 +26,7 @@ class ErrorType(IntEnum):
     ERROR_WRITE_FILE = 11
     ERROR_FILENAME_OVERFLOW = 12
     ERROR_NO_MEM = 13
+    ERROR_NO_XATTR_SUPPORT = 14
 
 
 class Validity(IntEnum):
@@ -115,5 +116,6 @@ ERROR_MESSAGES = {
     ErrorType.ERROR_NO_OVERWRITE: "Can not overwrite existing checksum.",
     ErrorType.ERROR_WRITE_FILE: "Could not write to file.",
     ErrorType.ERROR_FILENAME_OVERFLOW: "Filename too long.",
+    ErrorType.ERROR_NO_XATTR_SUPPORT: "Filesystem does not support extended attributes. Use -e to export to hidden files.",
 }
 
