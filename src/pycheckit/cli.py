@@ -78,6 +78,11 @@ def process_file(filepath: str, flags: Flags, no_crc_files: FileList, bad_crc_fi
     """
     path = Path(filepath)
 
+    # Check if file exists
+    if not path.exists():
+        print_error_message(ErrorType.ERROR_OPEN_FILE, filepath)
+        return ErrorType.ERROR_OPEN_FILE
+
     # Skip hidden files
     if path.name.startswith('.'):
         return ErrorType.SUCCESS
