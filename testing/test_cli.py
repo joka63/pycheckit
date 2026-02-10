@@ -4,6 +4,7 @@ import sys
 import os
 import subprocess
 import shutil
+import tempfile
 from pycheckit.cli import main
 from pycheckit.core import present_crc64, AttributeType, get_crc, ErrorType
 
@@ -268,7 +269,7 @@ class TestCheckitCompatibility:
     @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
     def test_nonexistent_file_error_message(self):
         """Test that both tools show an error message for nonexistent files."""
-        nonexistent_file = "/tmp/pycheckit_test_nonexistent_file_xyz123456789.txt"
+        nonexistent_file = os.path.join(tempfile.gettempdir(), "pycheckit_test_nonexistent_file_xyz123456789.txt")
 
         # Ensure the file doesn't exist
         if os.path.exists(nonexistent_file):
