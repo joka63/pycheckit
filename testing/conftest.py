@@ -41,7 +41,9 @@ def extended_path(monkeypatch):
     """Extend PATH to include ~/.local/bin for checkit compatibility tests.
     
     This fixture safely adds ~/.local/bin to PATH for tests that need to find
-    the checkit command, while guarding against missing HOME environment variable.
+    the checkit command. If HOME environment variable is not set, PATH remains
+    unchanged (tests will be skipped by the @pytest.mark.skipif decorator if
+    checkit command cannot be found).
     """
     home = os.environ.get('HOME')
     if home:
