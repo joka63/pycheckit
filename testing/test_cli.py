@@ -272,14 +272,8 @@ class TestCheckitCompatibility:
         assert "OK" in combined_pycheckit, f"pycheckit didn't report OK: {combined_pycheckit}"
 
     @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
-    @pytest.mark.xfail(reason="Known bug: pycheckit doesn't show error message for nonexistent files")
     def test_nonexistent_file_error_message(self):
-        """Test that both tools show an error message for nonexistent files.
-
-        BUG: pycheckit currently does not show an error message when trying to
-        process a nonexistent file, while checkit shows "Could not open file".
-        This test documents the expected behavior and will fail until the bug is fixed.
-        """
+        """Test that both tools show an error message for nonexistent files."""
         nonexistent_file = "/tmp/pycheckit_test_nonexistent_file_xyz123456789.txt"
 
         # Ensure the file doesn't exist
@@ -301,12 +295,14 @@ class TestCheckitCompatibility:
                                          capture_output=True, text=True)
         combined_pycheckit = result_pycheckit.stdout + result_pycheckit.stderr
 
-        # pycheckit should also show an error message (THIS CURRENTLY FAILS)
+        # pycheckit should also show an error message
         assert "open" in combined_pycheckit.lower() or "error" in combined_pycheckit.lower() or \
                "not" in combined_pycheckit.lower(), \
                f"pycheckit should show error message for nonexistent file, got: '{combined_pycheckit}'"
 
-        # Both should have non-zero exit codes
-        assert result_checkit.returncode != 0, "checkit should return non-zero for nonexistent file"
-        assert result_pycheckit.returncode != 0, "pycheckit should return non-zero for nonexistent file"
-
+        # Both should show similar error messages
+        # Note: checkit returns exit code 0 even for nonexistent files, so we don't check exit codes
+        assert "could not open file" in combined_checkit.lower(), \
+               f"checkit should show 'Could not open file', got: '{combined_checkit}'"
+        assert "could not open file" in combined_pycheckit.lower(), \
+               f"pycheckit should show 'Could not open file', got: '{combined_pycheckit}'"
