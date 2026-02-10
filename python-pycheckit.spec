@@ -1,5 +1,5 @@
 Name:           pycheckit
-Version:        0.1.4
+Version:        0.1.5
 Release:        1
 # Fill in the actual package summary to submit package to Fedora
 Summary:        A file checksummer and integrity tester using CRC64 checksums stored as extended attributes
@@ -75,6 +75,9 @@ make man
 %license COPYING
 
 %changelog
+* Tue Feb 10 2026 Joachim Katzer <joka63@gmx.de> 0.1.5-1
+- fix: options -s -e not working if extended attributes are not supported (joka63@gmx.de)
+
 * Mon Feb 09 2026 Joachim Katzer <joka63@gmx.de> 0.1.4-1
 - fix: don't generate hidden files without option -e (joka63@gmx.de)
 - doc: removed redundant changelog entries from spec file (joka63@gmx.de)
