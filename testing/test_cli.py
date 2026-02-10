@@ -70,8 +70,10 @@ class TestCLI:
 
 class TestCheckitCompatibility:
     """Test compatibility with the original checkit command."""
+    
+    # marks @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")  for all tests in this class
+    pytestmark = pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
 
-    @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
     def test_store_compatibility(self, temp_file):
         """Test that both checkit and pycheckit store the same CRC value."""
         # Store with original checkit
@@ -97,7 +99,6 @@ class TestCheckitCompatibility:
         assert crc_checkit == crc_pycheckit, \
             f"CRC mismatch: checkit={crc_checkit:016x}, pycheckit={crc_pycheckit:016x}"
 
-    @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
     def test_check_compatibility_pycheckit_store(self, temp_file):
         """Test that checkit can verify CRC stored by pycheckit."""
         # Store with pycheckit
@@ -109,7 +110,6 @@ class TestCheckitCompatibility:
         assert result.returncode == 0, f"checkit check failed: {result.stderr}"
         assert "OK" in result.stdout or "OK" in result.stderr
 
-    @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
     def test_check_compatibility_checkit_store(self, temp_file):
         """Test that pycheckit can verify CRC stored by checkit."""
         # Store with original checkit
@@ -121,7 +121,6 @@ class TestCheckitCompatibility:
         assert result.returncode == 0, f"pycheckit check failed: {result.stderr}"
         assert "OK" in result.stdout or "OK" in result.stderr
 
-    @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
     def test_display_compatibility(self, temp_file):
         """Test that both tools display the same CRC value."""
         # Store with pycheckit
@@ -146,7 +145,6 @@ class TestCheckitCompatibility:
         assert crc_hex in result_pycheckit.stdout or crc_hex in result_pycheckit.stderr, \
             f"pycheckit output doesn't contain CRC {crc_hex}: {result_pycheckit.stdout} {result_pycheckit.stderr}"
 
-    @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
     def test_remove_compatibility(self, temp_file):
         """Test that both tools can remove CRC attributes."""
         # Store with pycheckit
@@ -171,7 +169,6 @@ class TestCheckitCompatibility:
         attr_type = present_crc64(temp_file)
         assert attr_type == AttributeType.NO_ATTR
 
-    @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
     def test_export_import_compatibility(self, temp_file):
         """Test that export/import works between checkit and pycheckit."""
         import tempfile
@@ -245,8 +242,6 @@ class TestCheckitCompatibility:
             attr_type = present_crc64(test_file2)
             assert attr_type == AttributeType.XATTR, "Should have xattr after import"
 
-
-    @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
     def test_output_format_compatibility(self, temp_file):
         """Test that check output format is similar between tools."""
         # Store with pycheckit
@@ -265,7 +260,6 @@ class TestCheckitCompatibility:
         assert "OK" in combined_checkit, f"checkit didn't report OK: {combined_checkit}"
         assert "OK" in combined_pycheckit, f"pycheckit didn't report OK: {combined_pycheckit}"
 
-    @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
     def test_nonexistent_file_error_message(self):
         """Test that both tools show an error message for nonexistent files."""
         nonexistent_file = "/tmp/pycheckit_test_nonexistent_file_xyz123456789.txt"
