@@ -190,7 +190,16 @@ def put_crc(filepath: str, flags) -> ErrorType:
     except (OSError, IOError):
         # If extended attributes are not supported, return appropriate error
         # instead of automatically falling back to hidden files
-        return ErrorType.ERROR_NO_XATTR_SUPPORT
+        # Fall back to hidden file only if option -e is set
+        if flags & Flags.EXPORT:
+            try:
+                with open(hidden_crc_file(filepath), 'wb') as f:
+                    f.write(struct.pack('<Q', new_crc))
+                return ErrorType.SUCCESS
+            except (OSError, IOError):
+                return ErrorType.ERROR_SET_CRC
+        else:
+            return ErrorType.ERROR_NO_XATTR_SUPPORT
 
 
 

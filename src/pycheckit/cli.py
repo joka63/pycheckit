@@ -128,7 +128,7 @@ def process_file(filepath: str, flags: Flags, no_crc_files: FileList, bad_crc_fi
             return result
 
     # Export CRC
-    if flags & Flags.EXPORT:
+    if flags & Flags.EXPORT and not flags & Flags.STORE:
         if flags & Flags.VERBOSE:
             print(f"Exporting attribute for {filepath} to {hidden_crc_file(base_filename)}")
         result = export_crc(filepath, flags)
