@@ -4,6 +4,7 @@ import sys
 import os
 import subprocess
 import shutil
+import tempfile
 from pycheckit.cli import main
 from pycheckit.core import present_crc64, AttributeType, get_crc, ErrorType
 
@@ -174,7 +175,6 @@ class TestCheckitCompatibility:
     @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
     def test_export_import_compatibility(self, temp_file):
         """Test that export/import works between checkit and pycheckit."""
-        import tempfile
 
         # Create a temporary directory for testing
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -268,7 +268,6 @@ class TestCheckitCompatibility:
     @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
     def test_nonexistent_file_error_message(self):
         """Test that both tools show an error message for nonexistent files."""
-        import tempfile
         # Use tempfile.gettempdir() for portable path
         nonexistent_file = os.path.join(tempfile.gettempdir(), "pycheckit_test_nonexistent_file_xyz123456789.txt")
 
