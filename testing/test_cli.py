@@ -8,12 +8,6 @@ from pycheckit.cli import main
 from pycheckit.core import present_crc64, AttributeType, get_crc, ErrorType
 
 
-@pytest.fixture(scope="session")
-def checkit_available():
-    """Check if the original checkit command is available in PATH."""
-    return shutil.which("checkit") is not None
-
-
 class TestCLI:
     """Test command-line interface."""
     def test_cli_store(self, temp_file, monkeypatch):
