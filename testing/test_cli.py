@@ -71,6 +71,7 @@ class TestCLI:
 class TestCheckitCompatibility:
     """Test compatibility with the original checkit command."""
     
+    # marks @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")  for all tests in this class
     pytestmark = pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
 
     def test_store_compatibility(self, temp_file):
