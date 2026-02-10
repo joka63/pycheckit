@@ -76,7 +76,7 @@ make man
 
 %changelog
 * Tue Feb 10 2026 Joachim Katzer <joka63@gmx.de> 0.1.6-1
-- fix: no error message if file/dir does not exists (joka63@gmx.de)
+- fix: no error message if file/dir does not exist (joka63@gmx.de)
 - test: added checkit compatibility tests (joka63@gmx.de)
 
 * Tue Feb 10 2026 Joachim Katzer <joka63@gmx.de> 0.1.5-1
