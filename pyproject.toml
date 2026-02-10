@@ -1,6 +1,6 @@
 [project]
 name = "pycheckit"
-version = "0.1.5a1"
+version = "0.1.6a0"
 description = "A file checksummer and integrity tester using CRC64 checksums stored as extended attributes"
 readme = "README.md"
 requires-python = ">=3.12,<3.15"
