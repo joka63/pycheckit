@@ -72,7 +72,7 @@ class TestCheckitCompatibility:
     """Test compatibility with the original checkit command."""
 
     @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
-    def test_store_compatibility(self, temp_file):
+    def test_store_compatibility(self, temp_file, extended_path):
         """Test that both checkit and pycheckit store the same CRC value."""
         # Store with original checkit
         result = subprocess.run(['checkit', '-s', temp_file], capture_output=True, text=True)
@@ -98,7 +98,7 @@ class TestCheckitCompatibility:
             f"CRC mismatch: checkit={crc_checkit:016x}, pycheckit={crc_pycheckit:016x}"
 
     @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
-    def test_check_compatibility_pycheckit_store(self, temp_file):
+    def test_check_compatibility_pycheckit_store(self, temp_file, extended_path):
         """Test that checkit can verify CRC stored by pycheckit."""
         # Store with pycheckit
         result = subprocess.run(['pycheckit', '-s', temp_file], capture_output=True, text=True)
@@ -110,7 +110,7 @@ class TestCheckitCompatibility:
         assert "OK" in result.stdout or "OK" in result.stderr
 
     @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
-    def test_check_compatibility_checkit_store(self, temp_file):
+    def test_check_compatibility_checkit_store(self, temp_file, extended_path):
         """Test that pycheckit can verify CRC stored by checkit."""
         # Store with original checkit
         result = subprocess.run(['checkit', '-s', temp_file], capture_output=True, text=True)
@@ -122,7 +122,7 @@ class TestCheckitCompatibility:
         assert "OK" in result.stdout or "OK" in result.stderr
 
     @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
-    def test_display_compatibility(self, temp_file):
+    def test_display_compatibility(self, temp_file, extended_path):
         """Test that both tools display the same CRC value."""
         # Store with pycheckit
         subprocess.run(['pycheckit', '-s', temp_file], check=True, capture_output=True)
@@ -147,7 +147,7 @@ class TestCheckitCompatibility:
             f"pycheckit output doesn't contain CRC {crc_hex}: {result_pycheckit.stdout} {result_pycheckit.stderr}"
 
     @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
-    def test_remove_compatibility(self, temp_file):
+    def test_remove_compatibility(self, temp_file, extended_path):
         """Test that both tools can remove CRC attributes."""
         # Store with pycheckit
         subprocess.run(['pycheckit', '-s', temp_file], check=True, capture_output=True)
@@ -172,7 +172,7 @@ class TestCheckitCompatibility:
         assert attr_type == AttributeType.NO_ATTR
 
     @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
-    def test_export_import_compatibility(self, temp_file):
+    def test_export_import_compatibility(self, temp_file, extended_path):
         """Test that export/import works between checkit and pycheckit."""
         import tempfile
 
@@ -247,7 +247,7 @@ class TestCheckitCompatibility:
 
 
     @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
-    def test_output_format_compatibility(self, temp_file):
+    def test_output_format_compatibility(self, temp_file, extended_path):
         """Test that check output format is similar between tools."""
         # Store with pycheckit
         subprocess.run(['pycheckit', '-s', temp_file], check=True, capture_output=True)
@@ -266,7 +266,7 @@ class TestCheckitCompatibility:
         assert "OK" in combined_pycheckit, f"pycheckit didn't report OK: {combined_pycheckit}"
 
     @pytest.mark.skipif(not shutil.which("checkit"), reason="checkit command not available in PATH")
-    def test_nonexistent_file_error_message(self):
+    def test_nonexistent_file_error_message(self, extended_path):
         """Test that both tools show an error message for nonexistent files."""
         nonexistent_file = "/tmp/pycheckit_test_nonexistent_file_xyz123456789.txt"
 
