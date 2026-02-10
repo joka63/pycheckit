@@ -35,6 +35,9 @@ Die folgenden Kompatibilitätstests werden durchgeführt:
 ### 7. Ausgabeformat-Kompatibilität (`test_output_format_compatibility`)
 Überprüft, dass beide Tools ein ähnliches Ausgabeformat verwenden (insbesondere "OK" bei erfolgreicher Verifizierung).
 
+### 8. Teste Fehlermeldung, wenn Datei nicht existiert (`test_nonexistent_file_compatibility`)
+Überprüft, dass beide Tools eine und die gleiche Fehlermeldung ausgeben, wenn versucht wird, eine nicht existierende Datei zu überprüfen.
+
 ## Tests ausführen
 
 Alle Kompatibilitätstests ausführen:
