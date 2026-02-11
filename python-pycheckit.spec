@@ -1,6 +1,6 @@
 Name:           pycheckit
-Version:        0.0.0
-Release:        0%{?dist}
+Version:        0.1.6
+Release:        3
 # Fill in the actual package summary to submit package to Fedora
 Summary:        A file checksummer and integrity tester using CRC64 checksums stored as extended attributes
 
@@ -75,6 +75,9 @@ make man
 %license COPYING
 
 %changelog
+* Wed Feb 11 2026 Joachim Katzer <joka63@gmx.de> 0.1.6-3
+- fixed missing distribution tag in release 
+
 * Tue Feb 10 2026 Joachim Katzer <joka63@gmx.de> 0.1.6-2
 - Fix no error message if file doesn't exist (#4)
   (joka63@users.noreply.github.com)
