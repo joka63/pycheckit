@@ -1,6 +1,6 @@
 Name:           pycheckit
 Version:        0.1.6
-Release:        4%{?dist}
+Release:        5%{?dist}
 # Fill in the actual package summary to submit package to Fedora
 Summary:        A file checksummer and integrity tester using CRC64 checksums stored as extended attributes
 
@@ -75,6 +75,10 @@ make man
 %license COPYING
 
 %changelog
+* Wed Feb 11 2026 Joachim Katzer <joka63@gmx.de> 0.1.6-5
+- Automatic commit of package [pycheckit] minor release [0.1.6-4].
+  (joka63@gmx.de)
+
 * Wed Feb 11 2026 Joachim Katzer <joka63@gmx.de> 0.1.6-4
 - fixed missing distro tag after release number
 
