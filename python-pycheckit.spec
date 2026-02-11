@@ -1,5 +1,5 @@
 Name:           pycheckit
-Version:        0.6.1
+Version:        0.1.6
 Release:        3%{?dist}
 # Fill in the actual package summary to submit package to Fedora
 Summary:        A file checksummer and integrity tester using CRC64 checksums stored as extended attributes
