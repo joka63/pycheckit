@@ -76,6 +76,9 @@ make man
 
 %changelog
 * Wed Feb 11 2026 Joachim Katzer <joka63@gmx.de> 0.1.6-3
+- fixed missing distro tag in release 
+
+* Wed Feb 11 2026 Joachim Katzer <joka63@gmx.de> 0.1.6-3
 - fixed missing distribution tag in release 
 
 * Tue Feb 10 2026 Joachim Katzer <joka63@gmx.de> 0.1.6-2
